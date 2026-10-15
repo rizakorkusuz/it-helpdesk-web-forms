@@ -1,0 +1,7 @@
+{
+  "name": "it-helpdesk-web-forms",
+  "version": "1.0.0",
+  "description": "HTML and JavaScript help desk ticket intake form demo (no backend)",
+  "license": "MIT",
+  "scripts": { "test": "node --test tests/" }
+}

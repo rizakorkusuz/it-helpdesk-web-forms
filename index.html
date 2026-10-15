@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IT Help Desk Ticket Intake (demo)</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<main>
+<h1>IT Help Desk Ticket Intake</h1>
+<p class="note">Demo only. Nothing is sent to a server. The form builds a formatted ticket you can copy or open in your email app. Do not enter passwords or sensitive data.</p>
+<form id="ticket-form" novalidate>
+<div class="row">
+<label>Your name<input name="name" autocomplete="name"><span class="err" data-error-for="name"></span></label>
+<label>Email<input name="email" type="email" autocomplete="email"><span class="err" data-error-for="email"></span></label>
+</div>
+<div class="row">
+<label>Location<input name="location" placeholder="Building, floor, desk"></label>
+<label>Device or asset tag<input name="asset" placeholder="AST-0001"></label>
+</div>
+<label>Category
+<select name="category"><option value="">Choose…</option>
+<option>Hardware</option><option>Software</option><option>Network</option><option>Printing</option>
+<option>Email and collaboration</option><option>Identity and access</option><option>Audio-visual and conference room</option>
+<option>Mobile device</option><option>Move, add or change request</option></select>
+<span class="err" data-error-for="category"></span></label>
+<label>Summary<input name="summary" maxlength="140" placeholder="Short description of the problem"><span class="err" data-error-for="summary"></span></label>
+<label>Details<textarea name="details" rows="5" placeholder="What happened, when it started, exact error message, what you tried"></textarea><span class="err" data-error-for="details"></span></label>
+<div class="row">
+<label>Impact<select name="impact"><option value="">Choose…</option><option value="high">High: many people or a critical service</option><option value="medium">Medium: a team</option><option value="low">Low: one person</option></select></label>
+<label>Urgency<select name="urgency"><option value="">Choose…</option><option value="high">High: work is stopped</option><option value="medium">Medium: work is slowed</option><option value="low">Low: minor inconvenience</option></select></label>
+</div>
+<span class="err" data-error-for="impact"></span>
+<div id="priority" aria-live="polite"></div>
+<button type="submit">Build ticket</button>
+</form>
+<section id="output" hidden aria-live="polite">
+<h2>Ticket preview</h2>
+<pre id="preview"></pre>
+<button type="button" id="copy" class="secondary">Copy to clipboard</button>
+<a id="mail" class="btn" href="#">Open in email app</a>
+</section>
+</main>
+<script src="src/ticket.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
